@@ -49,6 +49,14 @@ def alphabeticOrder(list):
 def wordAppearances(list):
     return Counter(list).most_common()
 
+#Funcion que toma todas las frecuencias y las suma
+def sumFrequencies(list):
+    result = 0
+    for i in list: 
+        result+=i[1]
+    return result
+
+
 #path = takePath()
 path = "C:/University/Recuperacion de informacion textual/Tarea 1/University-SemesterVI-WordProcessor/pruebas/test.txt"
 text = readFile(path)
@@ -63,6 +71,8 @@ alphabeticOrder(wordListWithoutDuplicades)
 wordAppearancesInText = wordAppearances(wordList)
 print(wordListWithoutDuplicades)
 
-print("El numero de palabras TOTALES en el texto es: " + str(len(wordList)))
+frequencies = sumFrequencies(wordAppearancesInText)
+
+print("El numero de palabras TOTALES en el texto es: " + str(frequencies))
 print("El numero de palabras sin duplicados en el texto es: " + str(numberOfDistincticWordsInText))
 print(wordAppearancesInText)
