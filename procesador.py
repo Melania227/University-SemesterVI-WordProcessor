@@ -1,14 +1,24 @@
+import re
 
 #Funcion que abre y lee y retorna el texto de un archivo
 def readFile(path):
     file1 = open(path,"r")
     return file1.read()
 
+#Funcion que solicita y toma el path digitado por el usuario
 def takePath():
     path = input("Indique el path donde se encuentra su archivo: ")
     return path
 
-path = takePath()
-text = readFile(path)
+#Funcion que elimina los signos de puntuacion del texto y los cambia por un espacio en blanco
+def deletePunctuation(text):
+    return re.sub(r'[^\w\s]',' ',text)
 
-print(text)
+#path = takePath()
+path = "C:/University/Recuperacion de informacion textual/Tarea 1/University-SemesterVI-WordProcessor/pruebas/test.txt"
+text = readFile(path)
+textWithoutPunctuation = deletePunctuation(text)
+
+
+print(textWithoutPunctuation)
+
