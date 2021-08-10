@@ -22,9 +22,11 @@ def deletePunctuation(text):
 
 #Funcion que elimina los caracteres especiales, por ejemplo, las tildes
 def deleteSpecialCharacters(text):
+    text = text.replace('ñ','-&-')
     text = unicodedata.normalize('NFD', text)
     text = text.encode('ascii', 'ignore')
     text = text.decode("utf-8")
+    text = text.replace('-&-','ñ')
     return str(text)
 
 #Funcion para volver todas las palabras a minuscula
