@@ -1,5 +1,5 @@
-from io import open_code
 from os import error
+from collections import Counter
 import re
 import unicodedata
 
@@ -45,6 +45,10 @@ def wordsInTextList(wordList):
 def alphabeticOrder(list):
 	list.sort()
 
+#Funcion que toma una lista de palabras y nos devuelve otra lista que contiene cada palabra y la cantidad de veces que aparece
+def wordAppearances(list):
+    return Counter(list).most_common()
+
 #path = takePath()
 path = "C:/University/Recuperacion de informacion textual/Tarea 1/University-SemesterVI-WordProcessor/pruebas/test.txt"
 text = readFile(path)
@@ -53,6 +57,12 @@ textWithoutPunctuation = deletePunctuation(text)
 textWithoutSpecialCharacters = deleteSpecialCharacters(textWithoutPunctuation)
 wordList = splitText(textWithoutSpecialCharacters)
 wordListWithoutDuplicades = wordsInTextList(wordList)
+numberOfDistincticWordsInText = len(wordListWithoutDuplicades)
+alphabeticOrder(wordList)
 alphabeticOrder(wordListWithoutDuplicades)
+wordAppearancesInText = wordAppearances(wordList)
 print(wordListWithoutDuplicades)
 
+print("El numero de palabras TOTALES en el texto es: " + str(len(wordList)))
+print("El numero de palabras sin duplicados en el texto es: " + str(numberOfDistincticWordsInText))
+print(wordAppearancesInText)
