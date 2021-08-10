@@ -37,6 +37,10 @@ def lowerCaseText(text):
 def splitText(text):
     return text.split()
 
+#Funcion la lista de palabras y quita duplicados
+def wordsInTextList(wordList):
+	return list(set(wordList))
+
 #path = takePath()
 path = "C:/University/Recuperacion de informacion textual/Tarea 1/University-SemesterVI-WordProcessor/pruebas/test.txt"
 text = readFile(path)
@@ -44,5 +48,6 @@ text = lowerCaseText(text)
 textWithoutPunctuation = deletePunctuation(text)
 textWithoutSpecialCharacters = deleteSpecialCharacters(textWithoutPunctuation)
 wordList = splitText(textWithoutSpecialCharacters)
-print(wordList)
+wordListWithoutDuplicades = wordsInTextList(wordList)
+print(wordListWithoutDuplicades)
 
