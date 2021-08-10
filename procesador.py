@@ -20,11 +20,18 @@ def takePath():
 def deletePunctuation(text):
     return re.sub(r'[^\w\s]',' ',text)
 
+#Funcion que elimina los caracteres especiales, por ejemplo, las tildes
+def deleteSpecialCharacters(text):
+    text = unicodedata.normalize('NFD', text)
+    text = text.encode('ascii', 'ignore')
+    text = text.decode("utf-8")
+    return str(text)
+
 #path = takePath()
 path = "C:/University/Recuperacion de informacion textual/Tarea 1/University-SemesterVI-WordProcessor/pruebas/test.txt"
 text = readFile(path)
 textWithoutPunctuation = deletePunctuation(text)
+textWithoutSpecialCharacters = deleteSpecialCharacters(textWithoutPunctuation)
 
-
-print (text)
+print (textWithoutSpecialCharacters)
 
