@@ -1,8 +1,14 @@
+from io import open_code
+from os import error
 import re
+import unicodedata
 
 #Funcion que abre y lee y retorna el texto de un archivo
 def readFile(path):
-    file1 = open(path,"r")
+    try:
+        file1 = open(path,encoding="UTF-8")
+    except IOError:
+        file1 = open(path,"r")
     return file1.read()
 
 #Funcion que solicita y toma el path digitado por el usuario
@@ -20,5 +26,5 @@ text = readFile(path)
 textWithoutPunctuation = deletePunctuation(text)
 
 
-print(textWithoutPunctuation)
+print (text)
 
