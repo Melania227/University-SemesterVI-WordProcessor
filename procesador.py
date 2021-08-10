@@ -33,12 +33,16 @@ def deleteSpecialCharacters(text):
 def lowerCaseText(text):
     return text.lower()
 
+#Funcion que toma un texto y lo separa en palabras
+def splitText(text):
+    return text.split()
+
 #path = takePath()
 path = "C:/University/Recuperacion de informacion textual/Tarea 1/University-SemesterVI-WordProcessor/pruebas/test.txt"
 text = readFile(path)
 text = lowerCaseText(text)
 textWithoutPunctuation = deletePunctuation(text)
 textWithoutSpecialCharacters = deleteSpecialCharacters(textWithoutPunctuation)
-
-print (textWithoutSpecialCharacters)
+wordList = splitText(textWithoutSpecialCharacters)
+print(wordList)
 
