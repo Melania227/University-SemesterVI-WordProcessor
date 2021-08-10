@@ -41,6 +41,10 @@ def splitText(text):
 def wordsInTextList(wordList):
 	return list(set(wordList))
 
+#Funcion que toma la lista de palabras y la ordena alfabeticamente
+def alphabeticOrder(list):
+	list.sort()
+
 #path = takePath()
 path = "C:/University/Recuperacion de informacion textual/Tarea 1/University-SemesterVI-WordProcessor/pruebas/test.txt"
 text = readFile(path)
@@ -49,5 +53,6 @@ textWithoutPunctuation = deletePunctuation(text)
 textWithoutSpecialCharacters = deleteSpecialCharacters(textWithoutPunctuation)
 wordList = splitText(textWithoutSpecialCharacters)
 wordListWithoutDuplicades = wordsInTextList(wordList)
+alphabeticOrder(wordListWithoutDuplicades)
 print(wordListWithoutDuplicades)
 
