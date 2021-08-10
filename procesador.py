@@ -56,9 +56,15 @@ def sumFrequencies(list):
         result+=i[1]
     return result
 
+#Funcion que imprime toda la informacion de manera correcta
+def printResults(list):
+    for i in list: 
+        print(i[0] + "\t \t" + str(i[1]))
+    print("Número de palabras: " + str(numberOfDistincticWordsInText))
+    print("Frecuencia total: " + str(frequencies))
 
 #path = takePath()
-path = "C:/University/Recuperacion de informacion textual/Tarea 1/University-SemesterVI-WordProcessor/pruebas/test.txt"
+path = "C:/University/Recuperacion de informacion textual/Tarea 1/University-SemesterVI-WordProcessor/pruebas/test2.txt"
 text = readFile(path)
 text = lowerCaseText(text)
 textWithoutPunctuation = deletePunctuation(text)
@@ -69,10 +75,7 @@ numberOfDistincticWordsInText = len(wordListWithoutDuplicades)
 alphabeticOrder(wordList)
 alphabeticOrder(wordListWithoutDuplicades)
 wordAppearancesInText = wordAppearances(wordList)
-print(wordListWithoutDuplicades)
-
+alphabeticOrder(wordAppearancesInText)
 frequencies = sumFrequencies(wordAppearancesInText)
 
-print("El numero de palabras TOTALES en el texto es: " + str(frequencies))
-print("El numero de palabras sin duplicados en el texto es: " + str(numberOfDistincticWordsInText))
-print(wordAppearancesInText)
+printResults(wordAppearancesInText)
