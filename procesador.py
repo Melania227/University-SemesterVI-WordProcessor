@@ -57,25 +57,29 @@ def sumFrequencies(list):
     return result
 
 #Funcion que imprime toda la informacion de manera correcta
-def printResults(list):
+def printResults(list, n, f):
     for i in list: 
         print(i[0] + "\t \t" + str(i[1]))
-    print("Número de palabras: " + str(numberOfDistincticWordsInText))
-    print("Frecuencia total: " + str(frequencies))
+    print("Número de palabras: " + str(n))
+    print("Frecuencia total: " + str(f))
 
-#path = takePath()
-path = "C:/University/Recuperacion de informacion textual/Tarea 1/University-SemesterVI-WordProcessor/pruebas/test2.txt"
-text = readFile(path)
-text = lowerCaseText(text)
-textWithoutPunctuation = deletePunctuation(text)
-textWithoutSpecialCharacters = deleteSpecialCharacters(textWithoutPunctuation)
-wordList = splitText(textWithoutSpecialCharacters)
-wordListWithoutDuplicades = wordsInTextList(wordList)
-numberOfDistincticWordsInText = len(wordListWithoutDuplicades)
-alphabeticOrder(wordList)
-alphabeticOrder(wordListWithoutDuplicades)
-wordAppearancesInText = wordAppearances(wordList)
-alphabeticOrder(wordAppearancesInText)
-frequencies = sumFrequencies(wordAppearancesInText)
+#Funcion principal
+def wordCount():
+    #path = takePath()
+    path = "C:/University/Recuperacion de informacion textual/Tarea 1/University-SemesterVI-WordProcessor/pruebas/test2.txt"
+    text = readFile(path)
+    text = lowerCaseText(text)
+    textWithoutPunctuation = deletePunctuation(text)
+    textWithoutSpecialCharacters = deleteSpecialCharacters(textWithoutPunctuation)
+    wordList = splitText(textWithoutSpecialCharacters)
+    wordListWithoutDuplicades = wordsInTextList(wordList)
+    numberOfDistincticWordsInText = len(wordListWithoutDuplicades)
+    alphabeticOrder(wordList)
+    alphabeticOrder(wordListWithoutDuplicades)
+    wordAppearancesInText = wordAppearances(wordList)
+    alphabeticOrder(wordAppearancesInText)
+    frequencies = sumFrequencies(wordAppearancesInText)
 
-printResults(wordAppearancesInText)
+    printResults(wordAppearancesInText, numberOfDistincticWordsInText, frequencies)
+
+wordCount()
