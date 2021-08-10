@@ -27,9 +27,14 @@ def deleteSpecialCharacters(text):
     text = text.decode("utf-8")
     return str(text)
 
+#Funcion para volver todas las palabras a minuscula
+def lowerCaseText(text):
+    return text.lower()
+
 #path = takePath()
 path = "C:/University/Recuperacion de informacion textual/Tarea 1/University-SemesterVI-WordProcessor/pruebas/test.txt"
 text = readFile(path)
+text = lowerCaseText(text)
 textWithoutPunctuation = deletePunctuation(text)
 textWithoutSpecialCharacters = deleteSpecialCharacters(textWithoutPunctuation)
 
