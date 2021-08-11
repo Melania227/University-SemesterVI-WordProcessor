@@ -6,10 +6,14 @@ import unicodedata
 #Funcion que abre y lee y retorna el texto de un archivo
 def readFile(path):
     try:
-        file1 = open(path,encoding="UTF-8")
-    except IOError:
-        file1 = open(path,"r")
-    return file1.read()
+        with open(path, encoding='utf-8') as file:
+            content=file.read()
+            file.close()
+    except:
+        with open(path,"r") as file:
+            content=file.read()
+            file.close()
+    return content
 
 #Funcion que solicita y toma el path digitado por el usuario
 def takePath():
@@ -66,7 +70,7 @@ def printResults(list, n, f):
 #Funcion principal
 def wordCount():
     #path = takePath()
-    path = "C:/University/Recuperacion de informacion textual/Tarea 1/University-SemesterVI-WordProcessor/pruebas/test2.txt"
+    path = "C:/University/Recuperacion de informacion textual/Tarea 1/University-SemesterVI-WordProcessor/pruebas/rev.1"
     text = readFile(path)
     text = lowerCaseText(text)
     textWithoutPunctuation = deletePunctuation(text)
