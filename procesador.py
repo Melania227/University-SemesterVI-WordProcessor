@@ -74,9 +74,7 @@ def printResults(list, n, f):
 
 
 #Funcion principal
-def wordCount():
-    #path = takePath()
-    path = "C:/University/Recuperacion de informacion textual/Tarea 1/University-SemesterVI-WordProcessor/pruebas/ln.1"
+def wordCount(path):
     text = readFile(path)
     text = lowerCaseText(text)
     textWithoutPunctuation = deletePunctuation(text)
@@ -92,4 +90,5 @@ def wordCount():
 
     printResults(wordAppearancesInText, numberOfDistincticWordsInText, frequencies)
 
-wordCount()
+path = takePath()
+wordCount(path)
