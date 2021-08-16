@@ -1,4 +1,3 @@
-import os
 from collections import Counter
 import re
 import unicodedata
