@@ -21,7 +21,7 @@ def takePath():
 
 #Funcion que elimina los signos de puntuacion del texto y los cambia por un espacio en blanco
 def deletePunctuation(text):
-    return re.sub(r'[^\w\s]',' ',text)
+    return re.sub(r'[\W_]+',' ',text)
 
 #Funcion que elimina los caracteres especiales, por ejemplo, las tildes
 def deleteSpecialCharacters(text):
