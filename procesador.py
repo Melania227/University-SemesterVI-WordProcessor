@@ -1,4 +1,3 @@
-import os
 from collections import Counter
 import re
 import unicodedata
@@ -17,7 +16,7 @@ def readFile(path):
 
 #Funcion que solicita y toma el path digitado por el usuario
 def takePath():
-    path = input("Indique el path donde se encuentra su archivo: ")
+    path = input("Indique el path donde se encuentra su archivo y el nombre del mismo: ")
     return path
 
 #Funcion que elimina los signos de puntuacion del texto y los cambia por un espacio en blanco
@@ -68,15 +67,14 @@ def printResults(list, n, f):
     result += "Número de palabras: " + str(n) + "\n"
     result += "Frecuencia total: " + str(f) + "\n"
     print (result)
-    file = open("C:/University/Recuperacion de informacion textual/Tarea 1/University-SemesterVI-WordProcessor/pruebas/resultado.txt", "w")
+    path = input("Indique el path y el nombre donde desea que se guarde su archivo con los resultados: ")
+    file = open(path, "w")
     file.write(result)
     file.close()
 
 
 #Funcion principal
-def wordCount():
-    #path = takePath()
-    path = "C:/University/Recuperacion de informacion textual/Tarea 1/University-SemesterVI-WordProcessor/pruebas/ln.1"
+def wordCount(path):
     text = readFile(path)
     text = lowerCaseText(text)
     textWithoutPunctuation = deletePunctuation(text)
@@ -92,4 +90,5 @@ def wordCount():
 
     printResults(wordAppearancesInText, numberOfDistincticWordsInText, frequencies)
 
-wordCount()
+path = takePath()
+wordCount(path)
