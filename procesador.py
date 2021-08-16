@@ -1,4 +1,4 @@
-from os import error
+import os
 from collections import Counter
 import re
 import unicodedata
@@ -60,17 +60,23 @@ def sumFrequencies(list):
         result+=i[1]
     return result
 
-#Funcion que imprime toda la informacion de manera correcta
+#Funcion que imprime y coloca en un archivo toda la informacion de manera correcta
 def printResults(list, n, f):
+    result = ""
     for i in list: 
-        print(i[0] + "\t \t" + str(i[1]))
-    print("Número de palabras: " + str(n))
-    print("Frecuencia total: " + str(f))
+        result += i[0] + "\t \t" + str(i[1]) + "\n"
+    result += "Número de palabras: " + str(n) + "\n"
+    result += "Frecuencia total: " + str(f) + "\n"
+    print (result)
+    file = open("C:/University/Recuperacion de informacion textual/Tarea 1/University-SemesterVI-WordProcessor/pruebas/resultado.txt", "w")
+    file.write(result)
+    file.close()
+
 
 #Funcion principal
 def wordCount():
     #path = takePath()
-    path = "C:/University/Recuperacion de informacion textual/Tarea 1/University-SemesterVI-WordProcessor/pruebas/rev.1"
+    path = "C:/University/Recuperacion de informacion textual/Tarea 1/University-SemesterVI-WordProcessor/pruebas/ln.1"
     text = readFile(path)
     text = lowerCaseText(text)
     textWithoutPunctuation = deletePunctuation(text)
